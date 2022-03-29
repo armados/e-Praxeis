@@ -20,6 +20,7 @@ public abstract class DecisionExtraFields {
 
     /* Τύπος απόφασης */
     protected String documentType;
+
     /* Λίστα σχετικών αποφάσεων */
     protected List<RelatedDecision> relatedDecisions = new ArrayList<>();
 
@@ -73,7 +74,7 @@ public abstract class DecisionExtraFields {
 
     }
 
-    protected String showAmountWithoutCurrency(double amount) { // fixme real?
+    protected String showAmountWithoutCurrency(double amount) {
         if (amount == 0) {
             return String.format("ΠΟΣΟ %s", "(Δεν δηλώθηκε)");
         } else {

@@ -94,13 +94,11 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     public void addItem(Simple item) {
         this.items.add(item);
         notifyDataSetChanged();
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     public void addItems(List<Simple> items) {
         this.items.addAll(items);
         notifyDataSetChanged();

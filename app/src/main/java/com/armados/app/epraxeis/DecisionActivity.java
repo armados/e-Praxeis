@@ -29,7 +29,6 @@ public class DecisionActivity extends BaseActivity {
     private TextView txt_ada;
     private TextView txt_protocolNumber;
     private TextView txt_issueDate;
-    private TextView txt_organization;
     private TextView txt_subject;
     private TextView txt_publishTimestamp;
     private TextView txt_submissionTimestamp;
@@ -40,9 +39,7 @@ public class DecisionActivity extends BaseActivity {
 
     private Button btn_downloadDecision;
 
-    private SimpleAdapter mAdapterSigners;
-    private SimpleAdapter mAdapterUnits;
-    private SimpleAdapter mAdapterTmp;
+    private SimpleAdapter mAdapter;
 
     private String ada;
     private Decision dec;
@@ -67,7 +64,6 @@ public class DecisionActivity extends BaseActivity {
 
         txt_ada = findViewById(R.id.txt_ada);
         txt_status = findViewById(R.id.txt_status);
-        txt_organization = findViewById(R.id.txt_organization);
         txt_subject = findViewById(R.id.txt_subject);
         txt_publishTimestamp = findViewById(R.id.txt_publishTimestamp);
         txt_submissionTimestamp = findViewById(R.id.txt_submissionTimestamp);
@@ -75,7 +71,6 @@ public class DecisionActivity extends BaseActivity {
         txt_protocolNumber = findViewById(R.id.txt_protocolNumber);
         txt_issueDate = findViewById(R.id.txt_issueDate);
         btn_downloadDecision = findViewById(R.id.btn_downloadDecision);
-
 
         txtDebugJSON = findViewById(R.id.txtDebugJSON);
         txtDebugJSON.setOnClickListener(v -> {
@@ -91,54 +86,36 @@ public class DecisionActivity extends BaseActivity {
         });
 
 
-        mAdapterSigners = new SimpleAdapter();
-        mAdapterSigners.setClickListener(new SimpleAdapter.ItemClickListener() {
+        mAdapter = new SimpleAdapter();
+        mAdapter.setClickListener(new SimpleAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Simple rec = mAdapterSigners.getItem(position);
 
-                Intent i = new Intent(getApplicationContext(), SignerActivity.class);
-                i.putExtra("uid", rec.getUid());
-                view.getContext().startActivity(i);
+                if (mAdapter.getItem(position) instanceof SimpleSigner) {
+                    SimpleSigner rec = (SimpleSigner) mAdapter.getItem(position);
+                    Intent i = new Intent(view.getContext(), SignerActivity.class);
+                    i.putExtra("uid", rec.getUid());
+                    view.getContext().startActivity(i);
+                } else if (mAdapter.getItem(position)  instanceof SimpleOrganization) {
+                    SimpleOrganization rec = (SimpleOrganization) mAdapter.getItem(position);
+                    Intent i = new Intent(view.getContext(), OrganizationActivity.class);
+                    i.putExtra("uid", rec.getUid());
+                    view.getContext().startActivity(i);
+                } else if (mAdapter.getItem(position)  instanceof SimpleUnit) {
+                    SimpleUnit rec = (SimpleUnit) mAdapter.getItem(position);
+                    Intent i = new Intent(view.getContext(), UnitActivity.class);
+                    i.putExtra("uid", rec.getUid());
+                    view.getContext().startActivity(i);
+                }
+
             }
         });
 
-        mAdapterUnits = new SimpleAdapter();
-        mAdapterUnits.setClickListener(new SimpleAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                 Simple rec = mAdapterUnits.getItem(position);
-
-                Intent i = new Intent(getApplicationContext(), UnitActivity.class);
-                i.putExtra("uid", rec.getUid());
-                view.getContext().startActivity(i);
-            }
-
-        });
-
-        mAdapterTmp = new SimpleAdapter();
-
-
-        RecyclerView rv_Signers = findViewById(R.id.listSigners);
-        rv_Signers.setLayoutManager(new LinearLayoutManager(this));
-        rv_Signers.setHasFixedSize(true);
-        rv_Signers.setNestedScrollingEnabled(false);
-        rv_Signers.setAdapter(mAdapterSigners);
-        rv_Signers.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
-        RecyclerView rv_Units = findViewById(R.id.listUnits);
-        rv_Units.setLayoutManager(new LinearLayoutManager(this));
-        rv_Units.setHasFixedSize(true);
-        rv_Units.setNestedScrollingEnabled(false);
-        rv_Units.setAdapter(mAdapterUnits);
-        rv_Units.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
-        RecyclerView rv_Tmp = findViewById(R.id.listTmp);
-        rv_Tmp.setLayoutManager(new LinearLayoutManager(this));
-        rv_Tmp.setHasFixedSize(true);
-        rv_Tmp.setNestedScrollingEnabled(false);
-        rv_Tmp.setAdapter(mAdapterTmp);
-        rv_Tmp.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        RecyclerView rvInfo = findViewById(R.id.listInfo);
+        rvInfo.setLayoutManager(new LinearLayoutManager(this));
+        rvInfo.setHasFixedSize(false);
+        rvInfo.setAdapter(mAdapter);
+        rvInfo.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         if (dec == null)
             fetchRemoteData();
@@ -174,68 +151,9 @@ public class DecisionActivity extends BaseActivity {
     private void updateUI() {
         setActivitySubTitle(String.format("ΑΔΑ %s", dec.getAda()));
 
-        mAdapterSigners.removeAllItems();
-        for (Signer s : signersList) {
-            SimpleSigner rec = new SimpleSigner();
-            rec.setUid(s.getUid());
-            rec.setLabel(s.getLabel());
-
-            rec.setLabelHeader("Υπογράφων");
-
-            DictionaryEntity organization = Database.getInstance(this)
-                    .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, s.getOrganizationId());
-
-            if (organization != null)
-                rec.setDescription(organization.getLabel());
-            else
-                rec.setDescription(String.format("%s", R.string.missing_dict_entry));
-
-
-            mAdapterSigners.addItem(rec);
-        }
-
-        mAdapterUnits.removeAllItems();
-        for (Unit s : unitsList) {
-            SimpleUnit rec = new SimpleUnit();
-            rec.setUid(s.getUid());
-            rec.setLabel(s.getLabel());
-
-            rec.setLabelHeader("Οργανωτική μονάδα");
-
-            DictionaryEntity parent = Database.getInstance(this)
-                    .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, s.getParentId());
-
-            if (parent != null)
-                rec.setDescription(parent.getLabel()); // fixme
-            else
-                rec.setDescription("Οργανωτική Μονάδα"); // fixme
-
-            mAdapterUnits.addItem(rec);
-        }
-
         txt_ada.setText(dec.getAda());
 
         txt_status.setText(DecisionHelper.getStatusText(dec.getStatus()));
-
-        DictionaryEntity organization = Database.getInstance(this)
-                .getDictionaryDao()
-                .getEntry(Configuration.ORGANIZATIONS, dec.getOrganizationId());
-
-        if (organization != null) {
-            txt_organization.setText(organization.getLabel());
-
-            txt_organization.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), OrganizationActivity.class);
-                    intent.putExtra("uid", dec.getOrganizationId());
-                    startActivity(intent);
-                }
-            });
-        } else
-            txt_organization.setText(R.string.missing_dict_entry);
-
 
         DictionaryEntity decisionType = Database.getInstance(this)
                 .getDictionaryDao()
@@ -278,7 +196,67 @@ public class DecisionActivity extends BaseActivity {
             });
         }
 
-        mAdapterTmp.setItems(dec.getExtraFields().getDetailInfoItems(this));
+        mAdapter.removeAllItems();
+
+        {
+            DictionaryEntity organization = Database.getInstance(this)
+                    .getDictionaryDao()
+                    .getEntry(Configuration.ORGANIZATIONS, dec.getOrganizationId());
+
+            SimpleOrganization rec = new SimpleOrganization();
+            rec.setUid(dec.getOrganizationId());
+
+            if (organization != null)
+                rec.setLabel(organization.getLabel());
+            else
+                rec.setLabel(String.format("%s", R.string.missing_dict_entry));
+
+            rec.setLabelHeader("Φορέας");
+
+            mAdapter.addItem(rec);
+        }
+
+
+        for (Signer s : signersList) {
+            SimpleSigner rec = new SimpleSigner();
+            rec.setUid(s.getUid());
+            rec.setLabel(s.getLabel());
+
+            rec.setLabelHeader("Υπογράφων");
+
+            DictionaryEntity organization = Database.getInstance(this)
+                    .getDictionaryDao()
+                    .getEntry(Configuration.ORGANIZATIONS, s.getOrganizationId());
+
+            if (organization != null)
+                rec.setDescription(organization.getLabel());
+            else
+                rec.setDescription(String.format("%s", R.string.missing_dict_entry));
+
+            mAdapter.addItem(rec);
+        }
+
+        for (Unit s : unitsList) {
+            SimpleUnit rec = new SimpleUnit();
+            rec.setUid(s.getUid());
+            rec.setLabel(s.getLabel());
+
+            rec.setLabelHeader("Οργανωτική μονάδα");
+
+            DictionaryEntity parent = Database.getInstance(this)
+                    .getDictionaryDao()
+                    .getEntry(Configuration.ORGANIZATIONS, s.getParentId());
+
+            if (parent != null)
+                rec.setDescription(parent.getLabel());
+            else
+                rec.setDescription("Οργανωτική Μονάδα");
+
+            mAdapter.addItem(rec);
+        }
+
+         mAdapter.addItems(dec.getExtraFields().getDetailInfoItems(this));
+
     }
 
     /* =========================================== */

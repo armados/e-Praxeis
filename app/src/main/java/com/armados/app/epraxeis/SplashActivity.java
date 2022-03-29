@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-
-
 public class SplashActivity extends BaseActivity {
     private Handler mHandler;
     private Runnable longRunningTask;
@@ -15,6 +13,8 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        mHandler = new Handler();
 
         longRunningTask = new Runnable() {
             @Override
@@ -25,32 +25,23 @@ public class SplashActivity extends BaseActivity {
             }
         };
 
-        mHandler = new Handler();
         mHandler.postDelayed(longRunningTask, Configuration.SPLASH_DISPLAY_LENGTH);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Log.d(TAG, "func onBackPressed()");
 
         // Terminate application when user click back button
         exitApplication();
     }
 
     private void exitApplication() {
-        Log.d(TAG, "func exitApplication()");
-
-        cancelLoadingMainActivity();
+        // Remove active runnable task from handler
+        mHandler.removeCallbacks(longRunningTask);
 
         // Finish Splash Activity
         finish();
-    }
-
-    private void cancelLoadingMainActivity() {
-        Log.d(TAG, "func cancelLoadingMainActivity()");
-        // Remove active runnable task from handler
-        mHandler.removeCallbacks(longRunningTask);
     }
 
 }

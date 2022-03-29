@@ -22,12 +22,18 @@ public class Api {
 
     private static final String TAG = Api.class.getSimpleName();
 
-    public static final ApiInterface service = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
+    public static final ApiInterface service = RetrofitClientInstance
+            .getRetrofitInstance()
+            .create(ApiInterface.class);
 
     @Nullable
     public static DecisionSearchResult fetchDecisions(@NonNull final SearchQuery par) {
         Call<DecisionSearchResult> call = service
-                .getDecisionsAdvanced(par.getTerms().buildQuery(), par.getPage(), par.getPageSize());
+                .getDecisionsAdvanced(
+                        par.getTerms().buildQuery(),
+                        par.getPage(),
+                        par.getPageSize()
+                );
         RetrofitSyncCall<DecisionSearchResult> item = new RetrofitSyncCall<>(call);
 
         DecisionSearchResult result = item.execute();

@@ -33,133 +33,20 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_ada_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="ΑΔΑ"
-                    android:textStyle="bold" />
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_ada"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text=""
-                    android:textIsSelectable="true" />
-
-                <!-- ******************** -->
-
-
-                <TextView
-                    android:id="@+id/txt_status_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Κατάσταση"
-                    android:textStyle="bold" />
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text=""
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/txt_organization_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Φορέας"
-                    android:textStyle="bold" />
-
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_organization"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:padding="5dp"
-                    android:textIsSelectable="true"
-                    android:textSize="16sp" />
-
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_organization_label2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Θέμα πράξης"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:id="@+id/txt_subject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:padding="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="14dp"
                     android:text="Θέμα"
                     android:textColor="@color/md_black_1000"
                     android:textSize="19sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt_publishTimestamp_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Ημερομηνία ανάρτησης"
-                    android:textStyle="bold" />
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_publishTimestamp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text=""
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/txt_submissionTimestamp_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Τελευταία τροποποίηση"
-                    android:textStyle="bold" />
-
-
-                <!-- ******************** -->
-
-                <TextView
-                    android:id="@+id/txt_submissionTimestamp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="" />
-
-
-                <TextView
-                    android:id="@+id/txt_decisionType_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Είδος πράξης"
-                    android:textStyle="bold" />
-
-
-                <!-- ******************** -->
 
                 <TextView
                     android:id="@+id/txt_decisionType"
@@ -167,109 +54,208 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="5dp"
-                    android:text="" />
+                    android:text="Τύπος πράξης" />
 
-                <TextView
-                    android:id="@+id/txt_protocolNumber_label"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_ada_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="ΑΔΑ"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_ada"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textIsSelectable="true" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_status_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Κατάσταση"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textIsSelectable="true" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Αρ. πρωτοκόλλου"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_publishTimestamp_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Ημερομηνία ανάρτησης"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_publishTimestamp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textIsSelectable="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_submissionTimestamp_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Τελευταία τροποποίηση"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_submissionTimestamp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ******************** -->
+
+                <!-- ******************** -->
 
 
                 <!-- ******************** -->
 
-                <TextView
-                    android:id="@+id/txt_protocolNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text=""
-                    android:textIsSelectable="true" />
+                <!-- ******************** -->
 
-                <TextView
-                    android:id="@+id/txt_issueDate_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Ημερομηνία έκδοσης"
-                    android:textStyle="bold" />
+
+                <!-- ******************** -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_protocolNumber_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Αρ. πρωτοκόλλου"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_protocolNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textIsSelectable="true" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_issueDate_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Ημερομηνία έκδοσης"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_issueDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text=""
+                            android:textIsSelectable="true" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <!-- ******************** -->
 
 
-                <TextView
-                    android:id="@+id/txt_issueDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text=""
-                    android:textIsSelectable="true" />
+                <!-- ******************** -->
 
 
-                <TextView
-                    android:id="@+id/listSigners_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:padding="5dp"
-                    android:text="Υπογράφοντες"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
+                <!-- ******************** -->
+
+
+                <!-- ******************** -->
+
+                <!-- ******************** -->
+
+
+                <!-- ******************** -->
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/listSigners"
+                    android:id="@+id/listInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     tools:listitem="@layout/list_item_view_simple"
-                    android:contentDescription="Λίστα υπογραφόντων"/>
-
-                <TextView
-                    android:id="@+id/listUnits_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:padding="5dp"
-                    android:text="Οργανωτικές Μονάδες"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <!-- ******************** -->
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/listUnits"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    tools:listitem="@layout/list_item_view_simple"
-                    android:contentDescription="Λίστα οργανικών μονάδων"/>
-
-                <TextView
-                    android:id="@+id/txt_tmp_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:padding="5dp"
-                    android:text="Extra fields που περιέχει ο συγκεκριμένος τύπος"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/listTmp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    tools:listitem="@layout/list_item_view_simple"
-                    android:contentDescription="Λίστα δεδομένων της πράξης"/>
-
-
-                <!-- ******************** -->
-
-
-                <!-- ******************** -->
-
+                    android:contentDescription="Πληροφορίες που περιέχει η πράξη"/>
 
                 <!-- ******************** -->
 

@@ -15,9 +15,7 @@ import androidx.room.RoomDatabase;
 )
 public abstract class Database extends RoomDatabase {
     private static Database db;
-
     public abstract DictionaryDao getDictionaryDao();
-
     public abstract FavoriteDao getFavoriteDao();
 
     public static Database getInstance(Context context) {

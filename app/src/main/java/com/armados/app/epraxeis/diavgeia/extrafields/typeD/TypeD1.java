@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TypeD1 extends DecisionExtraFields {
     private List<Person> person  = new ArrayList<>();
-    private amountWithVAT awardAmountWithVAT;
+    private amountWithVAT awardAmount;
     private String assignmentType;
     private List<String> cpv = new ArrayList<>();
     private String textRelatedADA;
@@ -28,11 +28,11 @@ public class TypeD1 extends DecisionExtraFields {
     }
 
     public amountWithVAT getAwardAmount() {
-        return awardAmountWithVAT;
+        return awardAmount;
     }
 
-    public void setAwardAmount(amountWithVAT awardAmountWithVAT) {
-        this.awardAmountWithVAT = awardAmountWithVAT;
+    public void setAwardAmount(amountWithVAT awardAmount) {
+        this.awardAmount = awardAmount;
     }
 
     public String getAssignmentType() {
@@ -73,6 +73,7 @@ public class TypeD1 extends DecisionExtraFields {
         for (Person person : getPerson()) {
             SimplePersonAFM per = new SimplePersonAFM();
             per.setUid(person.getAfm());
+            per.setLabelHeader("Στοιχεία δικαιούχου");
             per.setLabel(showName(person));
             per.setSubtitle(showAFM(person));
             list.add(per);
