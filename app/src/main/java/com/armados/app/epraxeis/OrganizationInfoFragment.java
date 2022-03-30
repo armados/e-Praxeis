@@ -20,12 +20,12 @@ import com.armados.app.epraxeis.diavgeia.Organization;
 
 public class OrganizationInfoFragment extends BaseFragment {
 
-    private TextView txt_website;
-    private TextView txt_organization;
-    private TextView txt_organization_category;
-    private TextView txt_supervisor;
-    private TextView txt_email;
-    private TextView txt_active;
+    private TextView txtWebsite;
+    private TextView txtTitle;
+    private TextView txtCategory;
+    private TextView txtParentOrg;
+    private TextView txtEmail;
+    private TextView txtStatus;
     private TextView txtFavorite;
 
     private String uid;
@@ -52,12 +52,12 @@ public class OrganizationInfoFragment extends BaseFragment {
         mBoxLoading = view.findViewById(R.id.mBoxLoading);
         mBoxError = view.findViewById(R.id.mBoxError);
 
-        txt_supervisor = view.findViewById(R.id.txt_supervisor);
-        txt_organization = view.findViewById(R.id.txt_organization);
-        txt_organization_category = view.findViewById(R.id.txt_organization_category);
-        txt_website = view.findViewById(R.id.txt_website);
-        txt_email = view.findViewById(R.id.txt_email);
-        txt_active = view.findViewById(R.id.txt_active);
+        txtParentOrg = view.findViewById(R.id.txtParentOrg);
+        txtTitle = view.findViewById(R.id.txtTitle);
+        txtCategory = view.findViewById(R.id.txtCategory);
+        txtWebsite = view.findViewById(R.id.txtWebsite);
+        txtEmail = view.findViewById(R.id.txtEmail);
+        txtStatus = view.findViewById(R.id.txtStatus);
 
         txtFavorite = view.findViewById(R.id.txtFavorite);
         txtFavorite.setOnClickListener(new View.OnClickListener() {
@@ -91,11 +91,11 @@ public class OrganizationInfoFragment extends BaseFragment {
         ((OrganizationActivity)getActivity()).setActivitySubTitle(data.getLabel());
 
         if (data.getSupervisorLabel() != null)
-            txt_supervisor.setText(data.getSupervisorLabel());
+            txtParentOrg.setText(data.getSupervisorLabel());
         else
-            txt_supervisor.setText(" ");
+            txtParentOrg.setText(" ");
 
-        txt_supervisor.setOnClickListener(new View.OnClickListener() {
+        txtParentOrg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (data.getSupervisorLabel() == null)
                     return;
@@ -106,19 +106,19 @@ public class OrganizationInfoFragment extends BaseFragment {
             }
         });
 
-        txt_organization.setText(data.getLabel());
+        txtTitle.setText(data.getLabel());
 
         DictionaryEntity category = Database.getInstance(getActivity())
                 .getDictionaryDao()
                 .getEntry(Configuration.DICTIONARY_ORG_CATEGORY, data.getCategory());
 
         if (category != null)
-            txt_organization_category.setText(category.getLabel());
+            txtCategory.setText(category.getLabel());
         else
-            txt_organization_category.setText(String.format("%s", R.string.missing_dict_entry));
+            txtCategory.setText(String.format("%s", R.string.missing_dict_entry));
 
-        txt_website.setText("Ιστότοπος: " + data.getWebsite());
-        txt_website.setOnClickListener(new View.OnClickListener() {
+        txtWebsite.setText("Ιστότοπος: " + data.getWebsite());
+        txtWebsite.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (data.getWebsite() == null)
                     return;
@@ -134,8 +134,8 @@ public class OrganizationInfoFragment extends BaseFragment {
             }
         });
 
-        txt_email.setText("Διεύθυνση email: " + data.getOdeManagerEmail());
-        txt_email.setOnClickListener(new View.OnClickListener() {
+        txtEmail.setText("Διεύθυνση email: " + data.getOdeManagerEmail());
+        txtEmail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (data.getOdeManagerEmail() == null)
                     return;
@@ -152,7 +152,7 @@ public class OrganizationInfoFragment extends BaseFragment {
             }
         });
 
-        txt_active.setText(OrganizationHelper.getStatusText(data.getStatus()));
+        txtStatus.setText(OrganizationHelper.getStatusText(data.getStatus()));
 
         updateFavoriteButton();
     }

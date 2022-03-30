@@ -19,12 +19,11 @@ import com.armados.app.epraxeis.diavgeia.Signer;
 
 public class SignerInfoFragment extends BaseFragment {
 
-    private TextView txt_text1;
-    private TextView txt_text2;
-    private TextView txt_text3;
-    private TextView txt_text4;
-    private TextView txt_text5;
-    private TextView txt_text6;
+    private TextView txtOrganization;
+    private TextView txtName;
+    private TextView txtActiveFrom;
+    private TextView txtStatus;
+    private TextView txtHasOrgRights;
     private TextView txtFavorite;
 
     private String uid;
@@ -52,13 +51,11 @@ public class SignerInfoFragment extends BaseFragment {
         mBoxLoading = view.findViewById(R.id.mBoxLoading);
         mBoxError = view.findViewById(R.id.mBoxError);
 
-        txt_text1 = view.findViewById(R.id.txt_text1);
-        txt_text2 = view.findViewById(R.id.txt_text2);
-        txt_text3 = view.findViewById(R.id.txt_text3);
-        txt_text4 = view.findViewById(R.id.txt_text4);
-        txt_text5 = view.findViewById(R.id.txt_text5);
-        txt_text6 = view.findViewById(R.id.txt_text6);
-
+        txtOrganization = view.findViewById(R.id.txtOrganization);
+        txtName = view.findViewById(R.id.txtName);
+        txtActiveFrom = view.findViewById(R.id.txtActiveFrom);
+        txtStatus = view.findViewById(R.id.txtStatus);
+        txtHasOrgRights = view.findViewById(R.id.txtHasOrgRights);
 
         txtFavorite = view.findViewById(R.id.txtFavorite);
         txtFavorite.setOnClickListener(new View.OnClickListener() {
@@ -96,11 +93,11 @@ public class SignerInfoFragment extends BaseFragment {
                 .getEntry(Configuration.ORGANIZATIONS, data.getOrganizationId());
 
         if (dictRec != null)
-            txt_text1.setText(dictRec.getLabel());
+            txtOrganization.setText(dictRec.getLabel());
         else
-            txt_text1.setText(R.string.missing_dict_entry);
+            txtOrganization.setText(R.string.missing_dict_entry);
 
-        txt_text1.setOnClickListener(new View.OnClickListener() {
+        txtOrganization.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), OrganizationActivity.class);
                 intent.putExtra("uid", data.getOrganizationId());
@@ -108,19 +105,17 @@ public class SignerInfoFragment extends BaseFragment {
             }
         });
 
-        txt_text2.setText(SignerHelper.getFullNameText(data.getLastName(), data.getFirstName()));
+        txtName.setText(SignerHelper.getFullNameText(data.getLastName(), data.getFirstName()));
 
         if (data.getActiveFrom() != null) {
             final String activeFrom = DateTimeFormatters.DATE_FORMAT.format(data.getActiveFrom());
-            txt_text3.setText(String.format("Ημερομηνία εγγραφής %s", activeFrom));
+            txtActiveFrom.setText(String.format("Ημερομηνία εγγραφής %s", activeFrom));
         } else
-            txt_text3.setText("");
+            txtActiveFrom.setVisibility(View.GONE);
 
-        txt_text4.setText("");
+        txtStatus.setText(SignerHelper.getActiveText(data.isActive()));
 
-        txt_text5.setText(SignerHelper.getActiveText(data.isActive()));
-
-        txt_text6.setText(SignerHelper.getHasOrganizationSignRightsText(data.isHasOrganizationSignRights()));
+        txtHasOrgRights.setText(SignerHelper.getHasOrganizationSignRightsText(data.isHasOrganizationSignRights()));
 
         updateFavoriteButton();
     }

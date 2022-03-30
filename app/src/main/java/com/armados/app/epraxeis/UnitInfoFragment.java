@@ -20,12 +20,11 @@ import com.armados.app.epraxeis.diavgeia.Unit;
 
 public class UnitInfoFragment extends BaseFragment {
 
-    private TextView txt_text1;
-    private TextView txt_text2;
-    private TextView txt_text3;
-    private TextView txt_text4;
-    private TextView txt_text5;
-    private TextView txt_text6;
+    private TextView txtParentOrgUnit;
+    private TextView txtTitle;
+    private TextView txtCategory;
+    private TextView txtStatus;
+    private TextView txtActiveFrom;
     private TextView txt_text7;
     private TextView txtFavorite;
 
@@ -52,14 +51,11 @@ public class UnitInfoFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_info_unit, container, false);
 
-        txt_text1 = view.findViewById(R.id.txt_text1);
-        txt_text2 = view.findViewById(R.id.txt_text2);
-        txt_text3 = view.findViewById(R.id.txt_text3);
-        txt_text4 = view.findViewById(R.id.txt_text4);
-        txt_text5 = view.findViewById(R.id.txt_text5);
-        txt_text6 = view.findViewById(R.id.txt_text6);
-        txt_text7 = view.findViewById(R.id.txt_text7);
-
+        txtParentOrgUnit = view.findViewById(R.id.txtParentOrgUnit);
+        txtTitle = view.findViewById(R.id.txtTitle);
+        txtCategory = view.findViewById(R.id.txtCategory);
+        txtStatus = view.findViewById(R.id.txtStatus);
+        txtActiveFrom = view.findViewById(R.id.txtActiveFrom);
 
         txtFavorite = view.findViewById(R.id.txtFavorite);
         txtFavorite.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +89,8 @@ public class UnitInfoFragment extends BaseFragment {
         ((UnitActivity) getActivity()).setActivitySubTitle(data.getLabel());
 
         if (parentOrg != null) {
-            txt_text1.setText(parentOrg.getLabel());
-            txt_text1.setOnClickListener(new View.OnClickListener() {
+            txtParentOrgUnit.setText(parentOrg.getLabel());
+            txtParentOrgUnit.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), OrganizationActivity.class);
                     intent.putExtra("uid", parentOrg.getUid());
@@ -102,8 +98,8 @@ public class UnitInfoFragment extends BaseFragment {
                 }
             });
         } else {
-            txt_text1.setText(parentUnit.getLabel());
-            txt_text1.setOnClickListener(new View.OnClickListener() {
+            txtParentOrgUnit.setText(parentUnit.getLabel());
+            txtParentOrgUnit.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), UnitActivity.class);
                     intent.putExtra("uid", parentUnit.getUid());
@@ -112,27 +108,24 @@ public class UnitInfoFragment extends BaseFragment {
             });
         }
 
-        txt_text2.setText(data.getLabel());
-
+        txtTitle.setText(data.getLabel());
 
         DictionaryEntity category = Database.getInstance(getActivity())
                 .getDictionaryDao()
                 .getEntry(Configuration.DICTIONARY_ORG_UNIT_CATEGORY, data.getCategory());
 
         if (category != null)
-            txt_text4.setText(category.getLabel());
+            txtCategory.setText(category.getLabel());
         else
-            txt_text4.setText(R.string.missing_dict_entry);
+            txtCategory.setText(R.string.missing_dict_entry);
 
-        txt_text5.setText(UnitHelper.getActiveText(data.isActive()));
+        txtStatus.setText(UnitHelper.getActiveText(data.isActive()));
 
         if (data.getActiveFrom() != null) {
             final String activeFrom = DateTimeFormatters.DATE_FORMAT.format(data.getActiveFrom());
-            txt_text6.setText(String.format("Ημερομηνία εγγραφής %s", activeFrom));
+            txtActiveFrom.setText(String.format("Ημερομηνία εγγραφής %s", activeFrom));
         } else
-            txt_text6.setText("");
-
-        txt_text7.setText("");
+            txtActiveFrom.setVisibility(View.GONE);
 
         updateFavoriteButton();
     }
