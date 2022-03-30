@@ -75,7 +75,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="7dp"
         android:text="Κωδικός"
-        android:textColor="@color/md_green_600"
+        android:textColor="@color/md_green_800"
         android:textSize="12sp" />
 
     <TextView

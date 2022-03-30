@@ -16,7 +16,10 @@
         android:layout_marginEnd="0dp"
         android:hint="Φίλτρο κειμένου"
         android:inputType="text"
-        android:lines="1" />
+        android:lines="1"
+        android:minHeight="48dp"
+        android:padding="7dp"
+        android:textColorHint="@color/md_blue_700" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listOrganizations"
@@ -26,11 +29,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
+        android:contentDescription="Κατάλογως φορέων της Διαύγειας"
         android:scrollbars="vertical"
-        tools:listitem="@layout/list_item_watch_list"
-        android:contentDescription="Κατάλογως φορέων της Διαύγειας"/>
+        tools:listitem="@layout/list_item_watch_list" />
 
 </RelativeLayout>

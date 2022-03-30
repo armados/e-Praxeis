@@ -43,7 +43,8 @@
                     android:paddingEnd="5dp"
                     android:paddingRight="5dp"
                     android:paddingBottom="14dp"
-                    android:text="Θέμα"
+                    android:text="Θέμα Πράξης"
+                    android:contentDescription="Θέμα Πράξης"
                     android:textColor="@color/md_black_1000"
                     android:textSize="19sp"
                     android:textStyle="bold" />
@@ -54,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="5dp"
-                    android:text="Τύπος πράξης" />
+                    android:text="Τύπος πράξης"
+                    android:contentDescription="Τύπος πράξης"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,6 +84,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text=""
+                            android:contentDescription="ΑΔΑ πράξης"
                             android:textIsSelectable="true" />
 
                     </LinearLayout>
@@ -107,6 +110,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text=""
+                            android:contentDescription="Κατάσταση πράξης"
                             android:textIsSelectable="true" />
 
                     </LinearLayout>
@@ -138,6 +142,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text=""
+                            android:contentDescription="Ημερομηνία ανάρτησης πράξης"
                             android:textIsSelectable="true" />
                     </LinearLayout>
 
@@ -161,20 +166,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="" />
+                            android:text=""
+                            android:contentDescription="Τελευταία τροποποίηση πράξης"/>
 
                     </LinearLayout>
                 </LinearLayout>
-
-                <!-- ******************** -->
-
-                <!-- ******************** -->
-
-
-                <!-- ******************** -->
-
-                <!-- ******************** -->
-
 
                 <!-- ******************** -->
 
@@ -204,6 +200,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text=""
+                            android:contentDescription="Αριθμός πρωτοκόλλου πράξης"
                             android:textIsSelectable="true" />
 
                     </LinearLayout>
@@ -229,25 +226,13 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text=""
+                            android:contentDescription="Ημερομηνία έκδοσης πράξης"
                             android:textIsSelectable="true" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- ******************** -->
 
-
-                <!-- ******************** -->
-
-
-                <!-- ******************** -->
-
-
-                <!-- ******************** -->
-
-                <!-- ******************** -->
-
-
-                <!-- ******************** -->
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listInfo"
@@ -263,7 +248,8 @@
                     android:id="@+id/btn_downloadDecision"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Προβολή εγγράφου" />
+                    android:text="Προβολή εγγράφου"
+                    />
 
                 <TextView
                     android:id="@+id/txtDebugJSON"
@@ -271,7 +257,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="30dp"
-                    android:text="Αποσφαλμάτωη: Απάντηση JSON Πράξης" />
+                    android:text="Αποσφαλμάτωη: Απάντηση JSON Πράξης"
+                    />
 
 
             </LinearLayout>
