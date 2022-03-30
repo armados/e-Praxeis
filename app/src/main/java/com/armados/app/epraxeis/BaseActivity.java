@@ -14,8 +14,6 @@ import com.google.android.material.tabs.TabLayout;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    // https://developer.android.com/studio/debug/am-logcat
     protected final String TAG = getClass().getSimpleName();
 
     protected String activityTitle;
@@ -55,7 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         View view = findViewById(R.id.mainLayout);
 
         if (view == null) {
-            Log.e(TAG, "Αδυναμία εμφάνισης μηνύματος");
+            Log.e(TAG, "Αδυναμία εμφάνισης μηνύματος - Απουσιάζει το γραφικό mainLayout");
             return;
         }
 

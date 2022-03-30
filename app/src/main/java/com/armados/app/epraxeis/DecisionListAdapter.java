@@ -182,10 +182,6 @@ public class DecisionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     txtStatus.setVisibility(View.VISIBLE);
                     txtStatus.setBackgroundResource(R.drawable.bg_declist_revoked);
                     break;
-                case DecisionStatus.SUBMITTED:
-                    txtStatus.setVisibility(View.VISIBLE);
-                    txtStatus.setBackgroundResource(android.R.color.holo_purple);
-                    break;
             }
 
             txtTitle.setText(rec.getSubject());

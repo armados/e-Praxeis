@@ -111,15 +111,6 @@ public class DecisionListFragment extends BaseFragment {
         return view;
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        /* Saved list might have changed */
-        //mAdapter.notifyDataSetChanged();
-    }
-
     private void fetchRemoteData() {
         AsyncTaskRunner2 myTask = new AsyncTaskRunner2();
         myTask.execute();

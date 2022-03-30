@@ -10,8 +10,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 public abstract class BaseFragment extends Fragment {
-
-    // https://developer.android.com/studio/debug/am-logcat
     protected final String TAG = getClass().getSimpleName();
 
     protected View view;
@@ -24,7 +22,7 @@ public abstract class BaseFragment extends Fragment {
         View view = getActivity().findViewById(R.id.mainLayout);
 
         if (view == null) {
-            Log.e(TAG, "Αδυναμία εμφάνισης μηνύματος");
+            Log.e(TAG, "Αδυναμία εμφάνισης μηνύματος - Απουσιάζει το γραφικό mainLayout");
             return;
         }
 
