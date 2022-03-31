@@ -28,9 +28,9 @@ public class RetrofitClientInstance {
 
             OkHttpClient httpClient = new OkHttpClient.Builder()
                     .addInterceptor(logging)
-                    .readTimeout(60, TimeUnit.SECONDS)
-                    .writeTimeout(15, TimeUnit.SECONDS)
-                    .connectTimeout(15, TimeUnit.SECONDS)
+                    .readTimeout(120, TimeUnit.SECONDS)
+                    .writeTimeout(10, TimeUnit.SECONDS)
+                    .connectTimeout(10, TimeUnit.SECONDS)
                     .build();
 
             GsonBuilder builder = new GsonBuilder();

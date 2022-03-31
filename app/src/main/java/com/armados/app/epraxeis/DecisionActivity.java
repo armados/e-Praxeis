@@ -106,17 +106,7 @@ public class DecisionActivity extends BaseActivity {
                     Intent i = new Intent(view.getContext(), UnitActivity.class);
                     i.putExtra("uid", rec.getUid());
                     view.getContext().startActivity(i);
-                } else if (mAdapter.getItem(position)  instanceof SimplePersonAFM) {
-                    SimplePersonAFM rec = (SimplePersonAFM) mAdapter.getItem(position);
-
-                    if (rec.getUid()==null)
-                        return;
-
-                    Intent i = new Intent(view.getContext(), SearchActivity.class);
-                    i.putExtra("uid", rec.getUid());
-                    view.getContext().startActivity(i);
                 }
-
             }
         });
 

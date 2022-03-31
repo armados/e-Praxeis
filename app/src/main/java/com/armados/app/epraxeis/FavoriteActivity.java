@@ -21,7 +21,7 @@ public class FavoriteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
 
-        setActivityTitle("Λίστα παρακολούθησης");
+        setActivityTitle("Λίστα αγαπημένων");
         setActivityHomeAsUp();
 
         ScreenSlidePagerAdapter sa = new ScreenSlidePagerAdapter(getSupportFragmentManager(), getLifecycle());

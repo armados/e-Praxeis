@@ -34,7 +34,7 @@ public class RetrofitSyncCall<T> {
             }
 
         } catch (IOException ex) {
-            Log.e(TAG, "Network failure?");
+            Log.e(TAG, "Network failure or timeout?");
         }
 
         return null;

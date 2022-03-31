@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
 
         final Button btnDictUpdate = findViewById(R.id.btnDictUpdate);
         btnDictUpdate.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DictionaryActivity.class);
+            Intent intent = new Intent(this, UpdateDictionariesActivity.class);
             startActivity(intent);
         });
 
