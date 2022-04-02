@@ -71,7 +71,6 @@
                 app:backgroundTint="@null"
                 tools:text="Προσθήκη στα αγαπημένα" />
 
-
         </LinearLayout>
 
     </ScrollView>

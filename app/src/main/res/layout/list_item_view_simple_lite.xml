@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemLayoutSimpleLite"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
-            android:text="LabelHeader"
+            tools:text="Ετικέτα"
             android:textAllCaps="true"
             android:textSize="12sp" />
 
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
-            android:text="Τίτλος"
+            tools:text="Τίτλος"
             android:textAllCaps="true"
             android:textSize="12sp" />
 
@@ -53,7 +54,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:minLines="1"
-            android:text="Υπότιτλος"
+            tools:text="Υπότιτλος"
             android:textAllCaps="true"
             android:textSize="12sp" />
 
@@ -63,7 +64,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
-            android:text="Περιγραφή"
+            tools:text="Περιγραφή"
+            android:textAllCaps="true"
             android:textSize="12sp" />
 
 

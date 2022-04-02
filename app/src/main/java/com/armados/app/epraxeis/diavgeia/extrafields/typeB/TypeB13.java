@@ -106,14 +106,18 @@ public class TypeB13 extends DecisionExtraFields { // verify again
             SimplePersonAFM o = new SimplePersonAFM();
             o.setLabelHeader("Στοιχεία δικαιούχου");
 
-            if (person != null) {
-                o.setUid(person.getAfm());
+            if (person != null && (person.getAfm() != null || person.getName() != null)) {
+                o.setUid(person.getAfm() + p.getKae());  //fixme
+                o.setLabel(showName(person));
+                o.setSubtitle(showAFM(person));
+            } else if (p.getKae() != null) {
+                o.setLabel("KAE " + p.getKae());
+            } else {
+                o.setLabel("tipota oute person oute kae"); //fixme
             }
 
-            o.setLabel(showName(person));
-            o.setSubtitle(showAFM(person));
-
             o.setDescription(showAmountWithoutCurrency(p.getAmountWithVAT()));
+
             list.add(o);
         }
 
