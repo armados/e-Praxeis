@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Unit;
+import com.armados.app.epraxeis.diaugeia.Unit;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
 
         final Button btnFav = findViewById(R.id.btnFav);
         btnFav.setOnClickListener(v -> {
-            Intent intent = new Intent(this, FavoriteActivity.class);
+            Intent intent = new Intent(this, FavoritesActivity.class);
             startActivity(intent);
         });
 

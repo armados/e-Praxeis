@@ -61,7 +61,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ViewHolder
         else
             holder.txtDescription.setVisibility(View.GONE);
 
-        if (items.get(position) instanceof SimplePersonAFM)
+        if (items.get(position) instanceof SimpleAFM)
             holder.imgIcon.setImageResource(R.drawable.ic_baseline_person_24);
         else if (items.get(position) instanceof SimpleSigner)
             holder.imgIcon.setImageResource(R.drawable.ic_baseline_how_to_reg_24);

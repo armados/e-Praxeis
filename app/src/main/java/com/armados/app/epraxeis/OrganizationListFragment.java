@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Organizations;
+import com.armados.app.epraxeis.diaugeia.Organizations;
 
 public class OrganizationListFragment extends BaseFragment {
 

@@ -2,17 +2,17 @@ package com.armados.app.epraxeis;
 
 import androidx.annotation.Nullable;
 
-import com.armados.app.epraxeis.diavgeia.Decision;
-import com.armados.app.epraxeis.diavgeia.DecisionSearchResult;
-import com.armados.app.epraxeis.diavgeia.DecisionTypes;
-import com.armados.app.epraxeis.diavgeia.Dictionaries;
-import com.armados.app.epraxeis.diavgeia.DictionaryItems;
-import com.armados.app.epraxeis.diavgeia.Organization;
-import com.armados.app.epraxeis.diavgeia.Organizations;
-import com.armados.app.epraxeis.diavgeia.Signer;
-import com.armados.app.epraxeis.diavgeia.Signers;
-import com.armados.app.epraxeis.diavgeia.Unit;
-import com.armados.app.epraxeis.diavgeia.Units;
+import com.armados.app.epraxeis.diaugeia.Decision;
+import com.armados.app.epraxeis.diaugeia.DecisionSearchResult;
+import com.armados.app.epraxeis.diaugeia.DecisionTypes;
+import com.armados.app.epraxeis.diaugeia.Dictionaries;
+import com.armados.app.epraxeis.diaugeia.DictionaryItems;
+import com.armados.app.epraxeis.diaugeia.Organization;
+import com.armados.app.epraxeis.diaugeia.Organizations;
+import com.armados.app.epraxeis.diaugeia.Signer;
+import com.armados.app.epraxeis.diaugeia.Signers;
+import com.armados.app.epraxeis.diaugeia.Unit;
+import com.armados.app.epraxeis.diaugeia.Units;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

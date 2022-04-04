@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Signer;
-import com.armados.app.epraxeis.diavgeia.Signers;
+import com.armados.app.epraxeis.diaugeia.Signer;
+import com.armados.app.epraxeis.diaugeia.Signers;
 
 public class SignerListFragment extends BaseFragment implements AdapterView.OnItemClickListener  {
 
@@ -40,7 +40,7 @@ public class SignerListFragment extends BaseFragment implements AdapterView.OnIt
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_organizations, container, false);
+        View view = inflater.inflate(R.layout.fragment_list_signers, container, false);
 
         RecyclerView rcv = view.findViewById(R.id.list);
 

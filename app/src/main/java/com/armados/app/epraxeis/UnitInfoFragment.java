@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.armados.app.epraxeis.diavgeia.Organization;
-import com.armados.app.epraxeis.diavgeia.Unit;
+import com.armados.app.epraxeis.diaugeia.Organization;
+import com.armados.app.epraxeis.diaugeia.Unit;
 
 
 public class UnitInfoFragment extends BaseFragment {
@@ -131,18 +131,18 @@ public class UnitInfoFragment extends BaseFragment {
     }
 
     private void toggleFavorite() {
-        if (!FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.UNIT, uid)) {
+        if (!FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.UNIT, uid)) {
             final String description = (parentOrg != null) ? parentOrg.getLabel() : parentUnit.getLabel();
-            FavoriteHelper.insert(getActivity(), FavoriteEntity.UNIT, uid, data.getLabel(), description);
+            FavoritesHelper.insert(getActivity(), FavoriteEntity.UNIT, uid, data.getLabel(), description);
         } else {
-            FavoriteHelper.delete(getActivity(), FavoriteEntity.UNIT, uid);
+            FavoritesHelper.delete(getActivity(), FavoriteEntity.UNIT, uid);
         }
 
         updateFavoriteButton();
     }
 
     private void updateFavoriteButton() {
-        if (FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.UNIT, uid)) {
+        if (FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.UNIT, uid)) {
             txtFavorite.setText("Αποθηκεύτηκε");
             txtFavorite.setTextColor(Color.BLACK);
             txtFavorite.setBackgroundResource(R.drawable.bg_follow_true);

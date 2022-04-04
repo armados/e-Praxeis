@@ -1,6 +1,6 @@
 package com.armados.app.epraxeis;
 
-import com.armados.app.epraxeis.diavgeia.Unit;
+import com.armados.app.epraxeis.diaugeia.Unit;
 
 import java.util.Collections;
 import java.util.Comparator;

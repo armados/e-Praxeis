@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.armados.app.epraxeis.diavgeia.Organization;
-import com.armados.app.epraxeis.diavgeia.Signer;
+import com.armados.app.epraxeis.diaugeia.Organization;
+import com.armados.app.epraxeis.diaugeia.Signer;
 
 public class SignerInfoFragment extends BaseFragment {
 
@@ -121,17 +121,17 @@ public class SignerInfoFragment extends BaseFragment {
     }
 
     private void toggleFavorite() {
-        if (!FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.SIGNER, uid)) {
-            FavoriteHelper.insert(getActivity(), FavoriteEntity.SIGNER, uid, SignerHelper.getFullNameText(data.getLastName(), data.getFirstName()), dataOrg.getLabel());
+        if (!FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.SIGNER, uid)) {
+            FavoritesHelper.insert(getActivity(), FavoriteEntity.SIGNER, uid, SignerHelper.getFullNameText(data.getLastName(), data.getFirstName()), dataOrg.getLabel());
         } else {
-            FavoriteHelper.delete(getActivity(), FavoriteEntity.SIGNER, uid);
+            FavoritesHelper.delete(getActivity(), FavoriteEntity.SIGNER, uid);
         }
 
         updateFavoriteButton();
     }
 
     private void updateFavoriteButton() {
-        if (FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.SIGNER, uid)) {
+        if (FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.SIGNER, uid)) {
             txtFavorite.setText("Αφαίρεση από τα αγαπημένα");
             txtFavorite.setTextColor(Color.BLACK);
             txtFavorite.setBackgroundResource(R.drawable.bg_follow_true);

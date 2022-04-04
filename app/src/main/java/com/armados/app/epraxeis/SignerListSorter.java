@@ -1,6 +1,6 @@
 package com.armados.app.epraxeis;
 
-import com.armados.app.epraxeis.diavgeia.Signer;
+import com.armados.app.epraxeis.diaugeia.Signer;
 
 import java.util.Collections;
 import java.util.Comparator;

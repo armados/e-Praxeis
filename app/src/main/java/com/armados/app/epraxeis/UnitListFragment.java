@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Units;
+import com.armados.app.epraxeis.diaugeia.Units;
 
 public class UnitListFragment extends BaseFragment {
 
@@ -37,7 +37,7 @@ public class UnitListFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_organizations, container, false);
+        View view = inflater.inflate(R.layout.fragment_list_units, container, false);
 
         RecyclerView rcv = view.findViewById(R.id.list);
 

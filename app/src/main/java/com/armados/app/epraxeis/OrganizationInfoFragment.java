@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.armados.app.epraxeis.diavgeia.Organization;
+import com.armados.app.epraxeis.diaugeia.Organization;
 
 public class OrganizationInfoFragment extends BaseFragment {
 
@@ -158,17 +158,17 @@ public class OrganizationInfoFragment extends BaseFragment {
     }
 
     private void toggleFavorite() {
-        if (!FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.ORGANIZATION, uid)) {
-            FavoriteHelper.insert(getActivity(), FavoriteEntity.ORGANIZATION, uid, data.getLabel(), data.getSupervisorLabel());
+        if (!FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.ORGANIZATION, uid)) {
+            FavoritesHelper.insert(getActivity(), FavoriteEntity.ORGANIZATION, uid, data.getLabel(), data.getSupervisorLabel());
         } else {
-            FavoriteHelper.delete(getActivity(), FavoriteEntity.ORGANIZATION, uid);
+            FavoritesHelper.delete(getActivity(), FavoriteEntity.ORGANIZATION, uid);
         }
 
         updateFavoriteButton();
     }
 
     private void updateFavoriteButton() {
-        if (FavoriteHelper.isFavorite(getActivity(), FavoriteEntity.ORGANIZATION, uid)) {
+        if (FavoritesHelper.isFavorite(getActivity(), FavoriteEntity.ORGANIZATION, uid)) {
             txtFavorite.setText("Αφαίρεση από τα αγαπημένα");
             txtFavorite.setTextColor(Color.BLACK);
             txtFavorite.setBackgroundResource(R.drawable.bg_follow_true);

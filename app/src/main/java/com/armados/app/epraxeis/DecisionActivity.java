@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Decision;
-import com.armados.app.epraxeis.diavgeia.Signer;
-import com.armados.app.epraxeis.diavgeia.Unit;
+import com.armados.app.epraxeis.diaugeia.Decision;
+import com.armados.app.epraxeis.diaugeia.Signer;
+import com.armados.app.epraxeis.diaugeia.Unit;
 
 import java.util.ArrayList;
 

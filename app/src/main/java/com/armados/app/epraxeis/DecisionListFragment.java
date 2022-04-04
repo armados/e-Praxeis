@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armados.app.epraxeis.diavgeia.Decision;
-import com.armados.app.epraxeis.diavgeia.DecisionSearchResult;
+import com.armados.app.epraxeis.diaugeia.Decision;
+import com.armados.app.epraxeis.diaugeia.DecisionSearchResult;
 import com.armados.app.epraxeis.listitems.ItemDateHeader;
 import com.armados.app.epraxeis.listitems.ItemFetchNextPage;
 import com.armados.app.epraxeis.search.SearchQuery;

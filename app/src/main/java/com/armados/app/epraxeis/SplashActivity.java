@@ -3,7 +3,6 @@ package com.armados.app.epraxeis;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 public class SplashActivity extends BaseActivity {
     private Handler mHandler;
