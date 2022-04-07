@@ -121,10 +121,9 @@ public class DecisionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private final TextView txtStatus;
         private final TextView txtTitle;
         private final TextView txtDate;
-        private final TextView txtInfo;
         private final TextView txtOrganization;
 
-        private final SimpleLiteAdapter mAdapter = new SimpleLiteAdapter();
+        private final SimpleAdapterLite mAdapter = new SimpleAdapterLite();
 
         public ViewHolderDecision(View view) {
             super(view);
@@ -136,7 +135,6 @@ public class DecisionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             txtStatus = view.findViewById(R.id.txtOrgType);
             txtTitle = view.findViewById(R.id.txtTitle);
             txtDate = view.findViewById(R.id.txtDate);
-            txtInfo = view.findViewById(R.id.txtInfo);
             txtOrganization = view.findViewById(R.id.txtOrganization);
 
             RecyclerView rv_Tmp = view.findViewById(R.id.listTmp);
@@ -161,7 +159,7 @@ public class DecisionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             DictionaryEntity decType = Database.getInstance(txtAda.getContext())
                     .getDictionaryDao()
-                    .getEntry(Configuration.DECISION_TYPES, rec.getDecisionTypeId());
+                    .getEntry(Config.DECISION_TYPES, rec.getDecisionTypeId());
 
             if (decType != null)
                 txtType.setText(decType.getLabel());
@@ -188,11 +186,9 @@ public class DecisionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             txtDate.setText(DateTimeFormatters.DATE_FORMAT.format(rec.getSubmissionTimestamp()));
 
-            txtInfo.setText("");
-
             DictionaryEntity dictRec = Database.getInstance(itemView.getContext())
                     .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, rec.getOrganizationId());
+                    .getEntry(Config.ORGANIZATIONS, rec.getOrganizationId());
 
             if (decType != null)
                 txtOrganization.setText(dictRec.getLabel());

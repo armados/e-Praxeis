@@ -1,13 +1,13 @@
 package com.armados.app.epraxeis.search;
 
-import com.armados.app.epraxeis.Configuration;
+import com.armados.app.epraxeis.Config;
 
 import java.io.Serializable;
 
 public class SearchQuery implements Serializable {
      private SearchQur terms;
     private int page = 0;
-    private int pageSize = Configuration.SEARCH_PAGE_SIZE;
+    private int pageSize = Config.SEARCH_PAGE_SIZE;
 
     public SearchQur getTerms() {
         return terms;

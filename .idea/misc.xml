@@ -32,16 +32,18 @@
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/drawable/tableyout_horiz_line_divider.xml" value="0.1515" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_decision.xml" value="0.22" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_dictionary_update.xml" value="0.10960144927536232" />
-        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_list_organizations.xml" value="0.10960144927536232" />
+        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_list_organizations.xml" value="0.209375" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_organization.xml" value="0.15534420289855072" />
-        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_search.xml" value="0.15534420289855072" />
+        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_search.xml" value="0.209375" />
+        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_search_afm_activity.xml" value="0.12047101449275362" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_search_organizations.xml" value="0.33" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_search_results.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_signer.xml" value="0.10960144927536232" />
-        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_test.xml" value="0.10960144927536232" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_unit.xml" value="0.10960144927536232" />
+        <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/activity_update_dictionaries.xml" value="0.209375" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/fragment_common_views.xml" value="0.10960144927536232" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/fragment_info_organization.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/armad/AndroidStudioProjects/epraxeis/app/src/main/res/layout/fragment_info_signer.xml" value="0.10960144927536232" />

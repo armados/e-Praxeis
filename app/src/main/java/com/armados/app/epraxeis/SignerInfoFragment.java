@@ -90,7 +90,7 @@ public class SignerInfoFragment extends BaseFragment {
 
         DictionaryEntity dictRec = Database.getInstance(getActivity())
                 .getDictionaryDao()
-                .getEntry(Configuration.ORGANIZATIONS, data.getOrganizationId());
+                .getEntry(Config.ORGANIZATIONS, data.getOrganizationId());
 
         if (dictRec != null)
             txtOrganization.setText(dictRec.getLabel());

@@ -10,6 +10,7 @@ public final class SearchTerm implements SearchQur, Serializable {
     public static final String TERM_SIGNER_UID = "signerUid";
     public static final String TERM_UNIT_UID = "unitUid";
     public static final String TERM_SUBJECT = "subject";
+    public static final String TERM_AFM = "receiverAFM";
 
     private final String term;
     private final List<String> values = new ArrayList<>();

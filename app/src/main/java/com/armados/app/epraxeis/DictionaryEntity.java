@@ -3,7 +3,7 @@ package com.armados.app.epraxeis;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
-@Entity(tableName = Configuration.TABLE_NAME_STORE_DICTIONARY,
+@Entity(tableName = Config.TABLE_NAME_STORE_DICTIONARY,
         primaryKeys = {"dictionary","uid"})
 public class DictionaryEntity implements PairUidLabel {
 

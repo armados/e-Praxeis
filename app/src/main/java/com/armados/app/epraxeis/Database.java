@@ -29,7 +29,7 @@ public abstract class Database extends RoomDatabase {
         return Room.databaseBuilder(
                 context,
                 Database.class,
-                Configuration.DATABASE_NAME)
+                Config.DATABASE_NAME)
                 .allowMainThreadQueries()
                 .build();
     }

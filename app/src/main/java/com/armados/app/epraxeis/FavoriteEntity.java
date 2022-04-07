@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
-@Entity(tableName = Configuration.TABLE_NAME_FAVORITES,
+@Entity(tableName = Config.TABLE_NAME_FAVORITES,
         primaryKeys = {"type","uid"})
 public class FavoriteEntity {
     public static final String ORGANIZATION = "organization";

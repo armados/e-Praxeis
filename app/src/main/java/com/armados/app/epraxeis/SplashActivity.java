@@ -24,7 +24,7 @@ public class SplashActivity extends BaseActivity {
             }
         };
 
-        mHandler.postDelayed(longRunningTask, Configuration.SPLASH_DISPLAY_LENGTH);
+        mHandler.postDelayed(longRunningTask, Config.SPLASH_DISPLAY_LENGTH);
     }
 
     @Override

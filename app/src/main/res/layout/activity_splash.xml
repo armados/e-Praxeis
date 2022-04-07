@@ -7,7 +7,7 @@
     android:background="@color/md_white_1000">
 
     <ImageView
-        android:id="@+id/imgAppLogo"
+        android:id="@+id/imgLogoApplication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"

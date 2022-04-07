@@ -39,7 +39,7 @@ public class ListOrganizationsActivity extends BaseActivity {
         mAdapter = new ListOrganizationsAdapter();
         listOrganizations = Database.getInstance(getApplicationContext())
                 .getDictionaryDao()
-                .getAllEntries(Configuration.ORGANIZATIONS);
+                .getAllEntries(Config.ORGANIZATIONS);
 
         mAdapter.setData(listOrganizations);
 
@@ -69,7 +69,6 @@ public class ListOrganizationsActivity extends BaseActivity {
                 if (editable.toString().length() < 3)
                     return;
 
-                    //after the change calling the method and passing the search input
                 if (longRunningTask != null)
                     mHandler.removeCallbacks(longRunningTask);
 

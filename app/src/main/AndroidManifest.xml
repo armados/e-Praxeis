@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.armados.app.epraxeis">
-
     <!-- network permission required for api requests -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:icon="@mipmap/ic_app_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_app_logo_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.App">
-
+        <activity
+            android:name=".SearchAFMActivity"
+            android:exported="false" />
         <activity
             android:name=".FavoritesActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
@@ -52,19 +51,20 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-                <activity
-                    android:name=".SplashActivity"
-                    android:alwaysRetainTaskState="true"
-                    android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-                    android:exported="true"
-                    android:theme="@style/Theme.SplashScreen">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".SplashActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:exported="true"
+            android:theme="@style/Theme.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

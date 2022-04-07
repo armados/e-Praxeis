@@ -26,17 +26,6 @@ import java.util.ArrayList;
 
 public class DecisionActivity extends BaseActivity {
 
-    private TextView txt_ada;
-    private TextView txt_protocolNumber;
-    private TextView txt_issueDate;
-    private TextView txt_subject;
-    private TextView txt_publishTimestamp;
-    private TextView txt_submissionTimestamp;
-    private TextView txt_decisionType;
-    private TextView txt_status;
-
-    private TextView txtDebugJSON;
-
     private Button btn_downloadDecision;
 
     private SimpleAdapter mAdapter;
@@ -62,17 +51,9 @@ public class DecisionActivity extends BaseActivity {
 
         mProgressBar = findViewById(R.id.mProgressBar);
 
-        txt_ada = findViewById(R.id.txt_ada);
-        txt_status = findViewById(R.id.txt_status);
-        txt_subject = findViewById(R.id.txt_subject);
-        txt_publishTimestamp = findViewById(R.id.txt_publishTimestamp);
-        txt_submissionTimestamp = findViewById(R.id.txt_submissionTimestamp);
-        txt_decisionType = findViewById(R.id.txt_decisionType);
-        txt_protocolNumber = findViewById(R.id.txt_protocolNumber);
-        txt_issueDate = findViewById(R.id.txt_issueDate);
         btn_downloadDecision = findViewById(R.id.btn_downloadDecision);
 
-        txtDebugJSON = findViewById(R.id.txtDebugJSON);
+        TextView txtDebugJSON = findViewById(R.id.txtDebugJSON);
         txtDebugJSON.setOnClickListener(v -> {
             String url = "https://diavgeia.gov.gr/opendata/decisions/" + ada;
             Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -105,6 +86,11 @@ public class DecisionActivity extends BaseActivity {
                     SimpleUnit rec = (SimpleUnit) mAdapter.getItem(position);
                     Intent i = new Intent(view.getContext(), UnitActivity.class);
                     i.putExtra("uid", rec.getUid());
+                    view.getContext().startActivity(i);
+                } else if (mAdapter.getItem(position)  instanceof SimpleAFM) {
+                    SimpleAFM rec = (SimpleAFM) mAdapter.getItem(position);
+                    Intent i = new Intent(view.getContext(), SearchAFMActivity.class);
+                    i.putExtra("afm", rec.getUid());
                     view.getContext().startActivity(i);
                 }
             }
@@ -150,57 +136,76 @@ public class DecisionActivity extends BaseActivity {
     private void updateUI() {
         setActivitySubTitle(String.format("ΑΔΑ %s", dec.getAda()));
 
-        txt_ada.setText(dec.getAda());
+        mAdapter.removeAllItems();
 
-        txt_status.setText(DecisionHelper.getStatusText(dec.getStatus()));
-
-        DictionaryEntity decisionType = Database.getInstance(this)
-                .getDictionaryDao()
-                .getEntry(Configuration.DECISION_TYPES, dec.getDecisionTypeId());
-
-        if (decisionType != null)
-            txt_decisionType.setText(String.format("%s (%s)", decisionType.getLabel(), decisionType.getUid()));
-        else
-            txt_decisionType.setText(R.string.missing_dict_entry);
-
-        txt_subject.setText(dec.getSubject());
-
-        final String pubDateStr = DateTimeFormatters.TIMESTAMP_FORMAT.format(dec.getPublishTimestamp());
-
-        txt_publishTimestamp.setText(pubDateStr);
-
-        final String subDateStr = DateTimeFormatters.TIMESTAMP_FORMAT.format(dec.getSubmissionTimestamp());
-        txt_submissionTimestamp.setText(subDateStr);
-
-        txt_protocolNumber.setText(dec.getProtocolNumber());
-
-        final String issueDateStr = DateTimeFormatters.DATE_FORMAT.format(dec.getSubmissionTimestamp());
-        txt_issueDate.setText(issueDateStr);
-
-        if (dec.getDocumentUrl() == null) {
-            btn_downloadDecision.setVisibility(View.GONE);
-        } else {
-            btn_downloadDecision.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse(dec.getDocumentUrl()), "application/pdf");
-
-                    try {
-                        startActivity(intent);
-                    } catch (ActivityNotFoundException e) {
-                        // Define what your app should do if no activity can handle the intent
-                        showMessage("Δεν βρέθηκε πρόγραμμα προβολής PDF εγγράφων");
-                    }
-                }
-            });
+        {
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Θέμα");
+            rec.setLabel(dec.getSubject());
+            mAdapter.addItem(rec);
         }
 
-        mAdapter.removeAllItems();
+        {
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("ΑΔΑ");
+            rec.setLabel(dec.getAda());
+            mAdapter.addItem(rec);
+        }
+
+        {
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Κατάσταση");
+            rec.setLabel(DecisionHelper.getStatusText(dec.getStatus()));
+            mAdapter.addItem(rec);
+        }
+
+        {
+            DictionaryEntity decisionType = Database.getInstance(this)
+                    .getDictionaryDao()
+                    .getEntry(Config.DECISION_TYPES, dec.getDecisionTypeId());
+
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Τύπος πράξης");
+
+            if (decisionType != null)
+                rec.setLabel(String.format("%s (%s)", decisionType.getLabel(), decisionType.getUid()));
+            else
+                rec.setLabel(String.format("%s", R.string.missing_dict_entry));
+
+            mAdapter.addItem(rec);
+        }
+
+        {
+            final String pubDateStr = DateTimeFormatters.TIMESTAMP_FORMAT.format(dec.getPublishTimestamp());
+
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Ημερομηνία ανάρτησης");
+            rec.setLabel(pubDateStr);
+            mAdapter.addItem(rec);
+        }
+
+        {
+            final String subDateStr = DateTimeFormatters.TIMESTAMP_FORMAT.format(dec.getSubmissionTimestamp());
+
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Ημερομηνία τελευταίας τροποποίησης");
+            rec.setLabel(subDateStr);
+            mAdapter.addItem(rec);
+        }
+
+        {
+            final String issueDateStr = DateTimeFormatters.DATE_FORMAT.format(dec.getSubmissionTimestamp());
+
+            SimpleLabel rec = new SimpleLabel();
+            rec.setLabelHeader("Αρ. πρωτοκόλλου");
+            rec.setLabel(dec.getProtocolNumber() + "\n" + issueDateStr);
+            mAdapter.addItem(rec);
+        }
 
         {
             DictionaryEntity organization = Database.getInstance(this)
                     .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, dec.getOrganizationId());
+                    .getEntry(Config.ORGANIZATIONS, dec.getOrganizationId());
 
             SimpleOrganization rec = new SimpleOrganization();
             rec.setUid(dec.getOrganizationId());
@@ -215,7 +220,6 @@ public class DecisionActivity extends BaseActivity {
             mAdapter.addItem(rec);
         }
 
-
         for (Signer s : signersList) {
             SimpleSigner rec = new SimpleSigner();
             rec.setUid(s.getUid());
@@ -225,7 +229,7 @@ public class DecisionActivity extends BaseActivity {
 
             DictionaryEntity organization = Database.getInstance(this)
                     .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, s.getOrganizationId());
+                    .getEntry(Config.ORGANIZATIONS, s.getOrganizationId());
 
             if (organization != null)
                 rec.setDescription(organization.getLabel());
@@ -244,7 +248,7 @@ public class DecisionActivity extends BaseActivity {
 
             DictionaryEntity parent = Database.getInstance(this)
                     .getDictionaryDao()
-                    .getEntry(Configuration.ORGANIZATIONS, s.getParentId());
+                    .getEntry(Config.ORGANIZATIONS, s.getParentId());
 
             if (parent != null)
                 rec.setDescription(parent.getLabel());
@@ -255,6 +259,25 @@ public class DecisionActivity extends BaseActivity {
         }
 
          mAdapter.addItems(dec.getExtraFields().getDetailInfoItems(this));
+
+
+        if (dec.getDocumentUrl() == null) {
+            btn_downloadDecision.setVisibility(View.GONE);
+        } else {
+            btn_downloadDecision.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.parse(dec.getDocumentUrl()), "application/pdf");
+
+                    try {
+                        startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        // Define what your app should do if no activity can handle the intent
+                        showMessage("Δεν βρέθηκε πρόγραμμα προβολής PDF εγγράφων");
+                    }
+                }
+            });
+        }
 
     }
 

@@ -110,7 +110,7 @@ public class OrganizationInfoFragment extends BaseFragment {
 
         DictionaryEntity category = Database.getInstance(getActivity())
                 .getDictionaryDao()
-                .getEntry(Configuration.DICTIONARY_ORG_CATEGORY, data.getCategory());
+                .getEntry(Config.DICTIONARY_ORG_CATEGORY, data.getCategory());
 
         if (category != null)
             txtCategory.setText(category.getLabel());

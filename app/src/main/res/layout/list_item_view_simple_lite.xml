@@ -33,19 +33,18 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
-            tools:text="Ετικέτα"
             android:textAllCaps="true"
-            android:textSize="12sp" />
+            android:textColor="@color/md_teal_800"
+            android:textSize="12sp"
+            tools:text="Ετικέτα" />
 
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            tools:text="Τίτλος"
             android:textAllCaps="true"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:text="Τίτλος" />
 
         <TextView
             android:id="@+id/txtSubTitle"
@@ -64,9 +63,10 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lines="1"
-            tools:text="Περιγραφή"
             android:textAllCaps="true"
-            android:textSize="12sp" />
+            android:textColor="@color/md_blue_700"
+            android:textSize="12sp"
+            tools:text="Περιγραφή" />
 
 
     </LinearLayout>

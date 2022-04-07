@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="Λίστα Φορέων" />
+                android:text="Φορείς" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDictUpdate"
@@ -51,6 +51,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Ενημέρωση Λεξικών της Διαύγειας" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:text="Σημείωση: Πριν την έναρξη χρήσης της εφαρμογής πρέπει να γίνει λήψη των απαιτούμενων λεξικών της Διαύγειας" />
 
         </LinearLayout>
     </ScrollView>
