@@ -100,7 +100,6 @@ public class TypeD1 extends DecisionExtraFields {
             list.add(per);
         }
 
-
         return list;
     }
 
