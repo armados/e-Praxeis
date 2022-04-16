@@ -64,7 +64,11 @@ public class SearchActivity extends BaseActivity {
         final String str = txtTextBox.getText().toString();
 
         SearchTerm term = new SearchTerm(SearchTerm.TERM_SUBJECT);
-        term.add(str);
+
+        String[] arrWords = str.split(" ");
+        for (String s : arrWords) {
+            term.add(s);
+        }
 
         SearchQuery searchParams = new SearchQuery();
         searchParams.setTerms(term);
