@@ -53,19 +53,6 @@ public class DecisionActivity extends BaseActivity {
 
         btn_downloadDecision = findViewById(R.id.btn_downloadDecision);
 
-        TextView txtDebugJSON = findViewById(R.id.txtDebugJSON);
-        txtDebugJSON.setOnClickListener(v -> {
-            String url = "https://diavgeia.gov.gr/opendata/decisions/" + ada;
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            try {
-                startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                // Define what your app should do if no activity can handle the intent
-                showMessage("Δεν βρέθηκε πρόγραμμα προβολής ιστοσελίδων");
-            }
-        });
-
 
         mAdapter = new SimpleAdapter();
         mAdapter.setClickListener(new SimpleAdapter.ItemClickListener() {
