@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.armados.app.epraxeis">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- network permission required for api requests -->
     <application
         android:icon="@mipmap/ic_app_logo"
@@ -51,6 +50,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SplashActivity"
             android:alwaysRetainTaskState="true"

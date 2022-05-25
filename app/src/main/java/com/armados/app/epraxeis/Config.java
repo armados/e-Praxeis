@@ -2,7 +2,7 @@ package com.armados.app.epraxeis;
 
 public final class Config {
     // Διάρκεια προβολής της οθόνης υποδοχής σε μιλιδευτερόλεπτα
-    public static final int SPLASH_DISPLAY_LENGTH = 1700;
+    public static final int SPLASH_DISPLAY_LENGTH = 1800;
 
     // Διεύθυνση BASE_URL του API της Διαύγειας
     public static final String API_BASE_URL = "https://diavgeia.gov.gr/opendata/";
