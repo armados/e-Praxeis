@@ -40,7 +40,7 @@ public class Api {
         if (result == null) return null;
 
         for (int i = 0; i < result.getDecisions().size(); i++) {
-            /* Δημιουργεί τη σχετική κλάση extra fields */
+            /* Δημιουργεί την κλάση με τα extra fields */
             result.getDecisions().get(i).processExtraFields();
         }
 
@@ -55,7 +55,7 @@ public class Api {
         Decision result = item.execute();
         if (result == null) return null;
 
-        /* Δημιουργεί τη σχετική κλάση extra fields */
+        /* Δημιουργεί την κλάση με τα extra fields */
         result.processExtraFields();
 
         return result;

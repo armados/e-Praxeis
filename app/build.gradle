@@ -9,8 +9,8 @@ android {
         applicationId "com.armados.app.epraxeis"
         minSdk 26
         targetSdk 31
-        versionCode 22
-        versionName "0.22"
+        versionCode 23
+        versionName "0.23"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,8 +30,8 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -40,8 +40,8 @@ dependencies {
     /* Βιβλιοθήκες τρίτων (3rd party libraries) */
 
     /* Βιβλιοθήκη OkHTTP */
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.8'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.8'
 
     /* Βιβλιοθήκη Retrofit */
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
