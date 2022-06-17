@@ -1,8 +1,12 @@
 package com.armados.app.epraxeis;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class SplashActivity extends BaseActivity {
     private Handler mHandler;
@@ -12,6 +16,18 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        final TextView txtVersion = findViewById(R.id.txtVersion);
+
+        PackageManager manager = this.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), PackageManager.GET_ACTIVITIES);
+
+            txtVersion.setText("Έκδοση " + info.versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
         mHandler = new Handler();
 
