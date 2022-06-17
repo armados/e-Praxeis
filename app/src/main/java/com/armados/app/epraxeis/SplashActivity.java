@@ -17,13 +17,13 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        final TextView txtVersion = findViewById(R.id.txtVersion);
+        final TextView txtVersionName = findViewById(R.id.txtVersionName);
 
         PackageManager manager = this.getPackageManager();
         try {
             PackageInfo info = manager.getPackageInfo(this.getPackageName(), PackageManager.GET_ACTIVITIES);
 
-            txtVersion.setText("Έκδοση " + info.versionName);
+            txtVersionName.setText(String.format("Έκδοση %s", info.versionName));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
