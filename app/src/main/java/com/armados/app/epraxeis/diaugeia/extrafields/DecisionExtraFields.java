@@ -49,7 +49,7 @@ public abstract class DecisionExtraFields {
     }
 
     protected String showAFM(final Person person) {
-        if (person == null || person.getAfm() == null)
+        if (person == null || person.getAfm() == null || person.getAfm().equals(""))
             return String.format("ΑΦΜ %s", "(Δεν δηλώθηκε)");
         else
             return String.format("ΑΦΜ %s", person.getAfm());
