@@ -42,7 +42,7 @@ public abstract class DecisionExtraFields {
     public abstract List<Simple> getDetailInfoItems(Context context);
 
     protected String showName(final Person person) {
-        if (person == null || person.getName() == null)
+        if (person == null || person.getName() == null || person.getName().equals(""))
             return "(Δεν δηλώθηκε επωνυμία)";
         else
             return person.getName();
