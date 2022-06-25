@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="20dp"
-                android:text="Η ενημέρωση των λεξικών της Διαύγειας είναι απαραίτητη για την λειτουργία της εφαρμογής" />
+                android:text="Η ενημέρωση των λεξικών της Διαύγειας είναι απαραίτητη για την εύρυθμη λειτουργία της εφαρμογής" />
 
             <Button
                 android:id="@+id/btnRefreshDictionaries"
