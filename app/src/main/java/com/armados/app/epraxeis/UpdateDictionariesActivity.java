@@ -28,7 +28,7 @@ public class UpdateDictionariesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_dictionaries);
 
-        setActivityTitle("Ενημέρωση Λεξικών της Διαύγειας");
+        setActivityTitle("Ενημέρωση Λεξικών");
         setActivityHomeAsUp();
 
         progressBar = new ProgressDialog(this);
