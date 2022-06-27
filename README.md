@@ -1,8 +1,5 @@
 # Εφαρμογή e-Πράξεις της Διαύγειας
 
-
-![Application screenshot](https://play-lh.googleusercontent.com/vPXamr0OnqUrI7Y2fO_q0BXuKO-Rwo2_VgSv_RiMfBEVJ9KxNZOFNL_gpJ2jcgSkvXJx=w2560-h1440-rw)
-
 Στο πλαίσιο διπλωματικής εργασίας αναπτύχθηκε εφαρμογή για φορητές έξυπνες συσκευές με λειτουργικό σύστημα Android.
 
 Το αντικείμενο της εφαρμογής e-Πράξεις είναι η άντληση των ανοικτών δεδομένων που παρέχει το πρόγραμμα Διαύγεια.
