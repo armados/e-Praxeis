@@ -13,9 +13,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
+        android:contentDescription="Λίστα αγαπημένων"
         android:scrollbars="vertical"
-        tools:listitem="@layout/list_item_watch_list"
-        android:contentDescription="Λίστα αγαπημένων">
+        tools:listitem="@layout/list_item_watch_list">
 
     </androidx.recyclerview.widget.RecyclerView>
 
